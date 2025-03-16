@@ -48,5 +48,35 @@ public class Main implements CommandLineRunner {
         }
 
         System.out.println("Sorted without duplicates: " + Arrays.toString(uniqueNumbers));
+
+        System.out.println("\nMatrix:");
+
+        int rows = 3;
+        int cols = 3;
+        int[][] matrix = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j] = random.nextInt(100);
+            }
+        }
+
+        System.out.println("Matrix:");
+        for (int i = 0; i < rows; i++) {
+            System.out.println(Arrays.toString(matrix[i]));
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = i + 1; j < cols; j++) {
+                int tempVal = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = tempVal;
+            }
+        }
+
+        System.out.println("Transposed matrix:");
+        for (int i = 0; i < rows; i++) {
+            System.out.println(Arrays.toString(matrix[i]));
+        }
     }
 }
